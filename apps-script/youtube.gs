@@ -206,13 +206,13 @@ function spreadsheetAnalytics() {
   // The fifth parameter is an object that contains any additional optional parameters
   // (dimensions, filters, sort, etc.) that you want to set.
   var analyticsResponse = YouTubeAnalytics.Reports.query(
-    'channel==' + channelId,
-    oneMonthAgoFormatted,
-    todayFormatted,
-    'views,likes,dislikes,shares',
     {
-      dimensions: 'day',
-      sort: '-day'
+      "startDate": oneMonthAgoFormatted,
+      "endDate": todayFormatted,
+      "ids": "channel==" + channelId,
+      "dimensions": "day",
+      "sort": "-day",
+      "metrics": "views,likes,dislikes,shares"
     });
 
   // Create a new Spreadsheet with rows and columns corresponding to our dates
